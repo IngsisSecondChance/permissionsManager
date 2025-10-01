@@ -1,3 +1,5 @@
+import jdk.tools.jlink.resources.plugins
+
 plugins {
 	java
 	id("org.springframework.boot") version "3.5.6"
@@ -5,6 +7,7 @@ plugins {
 	jacoco
 	id("com.diffplug.spotless") version "6.25.0"
 	checkstyle
+    kotlin("jvm")
 }
 
 group = "ingsis"
@@ -31,6 +34,7 @@ dependencies {
 	testImplementation("org.testcontainers:junit-jupiter:1.20.1")
 	testImplementation("org.testcontainers:postgresql:1.20.1")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.withType<Test> { useJUnitPlatform() }
